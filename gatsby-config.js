@@ -4,7 +4,7 @@ module.exports = {
     description: 'Personal site for Joseph Kyle Treman',
     author: `@jkyletreman`,
     links: {
-      github: '',
+      github: 'https://github.com/jkyletreman',
       linkedin: '',
       twitter: '',
       bioethics: '',
