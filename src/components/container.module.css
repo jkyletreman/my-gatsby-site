@@ -1,0 +1,15 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  background-color: black;
+}
+
+h1 {
+    color: white;
+    font-family: cursive;
+}
+
+.nameContainer {
+    display: flex;
+    justify-self: center;
+}
