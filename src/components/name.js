@@ -1,10 +1,24 @@
-import React from 'react';
-import Container from './container';
+import React from "react"
+import { useStaticQuery } from "gatsby"
+import Container from "./container"
 
-const Name = () => (
+const Name = () => {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `
+  )
+  return (
     <Container>
-        <h1>Kyle</h1>
+      <h1>{data.site.siteMetadata.title}</h1>
     </Container>
-)
+  )
+}
 
-export default Name;
+export default Name
