@@ -1,11 +1,12 @@
 // libraries
-import React from "react"
+import React, { useState } from "react"
 import { useStaticQuery } from "gatsby"
-import { FaGithub } from "react-icons/fa"
+import { FaGithub, FaTwitterSquare, FaTwitter } from "react-icons/fa"
 // components
-import Container from "./container"
+import Container from "./containers/CenterContainer"
 
 const Name = () => {
+  const [reveal, setReveal] = useState(false)
   // components need static query instead of exporting method like Pages
   const data = useStaticQuery(
     graphql`
@@ -24,13 +25,30 @@ const Name = () => {
   return (
     <Container>
       <h1>{data.site.siteMetadata.title}</h1>
+      {/* Icon Container */}
       <div
-        styles={{
-          height: "25px",
-          width: "25px",
+        style={{
+          display: 'flex'
         }}
+        onMouseOver={() => setReveal(true)}
       >
-        <a href='href={data.site.siteMetadata.links.github}'><FaGithub style={{backgroundColor: 'white'}} /></a>
+        {/* Link Container */}
+        <a href={data.site.siteMetadata.links.github}>
+          <FaGithub
+            style={{
+              backgroundColor: "white",
+              display: reveal ? 'flex' : 'none'
+            }}
+          />
+        </a>
+        <a href={data.site.siteMetadata.links.twitter}>
+          <FaTwitterSquare
+            style={{
+              backgroundColor: "white",
+              display: reveal ? 'flex' : 'none'
+            }}
+          />
+        </a>
       </div>
     </Container>
   )

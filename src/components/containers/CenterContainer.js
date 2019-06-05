@@ -1,5 +1,5 @@
 import React from "react"
-import containerStyles from "./container.module.css"
+import containerStyles from "./CenterContainer.module.css"
 
 const Container = ({ children }) => (
   <div className={containerStyles.nameContainer}>{children}</div>
