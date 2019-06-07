@@ -1,8 +1,8 @@
 import React from "react"
 import containerStyles from "./CenterContainer.module.css"
 
-const Container = ({ children }) => (
+const  NameContainer = ({ children }) => (
   <div className={containerStyles.nameContainer}>{children}</div>
 )
 
-export default Container;
+export default NameContainer;
