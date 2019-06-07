@@ -9,7 +9,7 @@ h1 {
     font-family: cursive;
 }
 
-.nameContainer {
+.centered {
     display: flex;
     flex-direction: column;
     justify-self: center;

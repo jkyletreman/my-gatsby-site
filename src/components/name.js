@@ -1,11 +1,9 @@
 // libraries
-import React, { useState } from "react"
+import React from "react"
 import { useStaticQuery } from "gatsby"
-import { useSpring, useTransition, animated } from "react-spring"
+import { useSpring, animated } from "react-spring"
 // components
-import NameContainer from "./containers/NameContainer"
-import Github from "./icons/Github"
-import Twitter from "./icons/Twitter"
+import CenterContainer from "./containers/CenterContainer"
 
 const Name = () => {
     // components need static query instead of exporting method like Pages
@@ -28,11 +26,11 @@ const Name = () => {
     });
 
     return (
-        <NameContainer>
+        <CenterContainer>
             <animated.h1 style={fadein}>
                 {data.site.siteMetadata.title}
             </animated.h1>
-        </NameContainer>
+        </CenterContainer>
     )
 }
 
