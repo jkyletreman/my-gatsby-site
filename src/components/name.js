@@ -1,57 +1,56 @@
 // libraries
 import React, { useState } from "react"
 import { useStaticQuery } from "gatsby"
-import {useSpring, animated} from 'react-spring'
-import { FaGithub, FaTwitterSquare, FaTwitter } from "react-icons/fa"
+import { useSpring, useTransition, animated } from "react-spring"
 // components
 import Container from "./containers/CenterContainer"
+import Github from './icons/Github';
+import Twitter from './icons/Twitter';
 
 const Name = () => {
-  const animation = useSpring({config: { duration: 1000 }, opacity: 1, from: {opacity: 0}});
-  // components need static query instead of exporting method like Pages
-  const data = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            links {
-              github
+    // components need static query instead of exporting method like Pages
+    const data = useStaticQuery(
+        graphql`
+            query {
+                site {
+                    siteMetadata {
+                        title
+                        links
+                    }
+                }
             }
-          }
-        }
-      }
-    `
-  )
-  return (
-    <Container>
-      <animated.h1 style={animation}>{data.site.siteMetadata.title}</animated.h1>
-      {/* Icon Container */}
-      <div
-        style={{
-          display: 'flex'
-        }}
-      >
-        {/* Link Container */}
-        <a href={data.site.siteMetadata.links.github}>
-          <FaGithub
-            style={{
-              backgroundColor: "white",
-              display: 'flex',
-            }}
-          />
-        </a>
-        <a href={data.site.siteMetadata.links.twitter}>
-          <FaTwitterSquare
-            style={{
-              backgroundColor: "white",
-              display: 'flex'
-            }}
-          />
-        </a>
-      </div>
-    </Container>
-  )
+        `
+    )
+
+    const items = [<Github />, <Twitter />]
+
+    const fadein = useSpring({
+        config: { duration: 500 },
+        opacity: 1,
+        from: { opacity: 0 },
+    })
+
+    const transitions = useTransition(items, item => item.key, {
+        from: { transform: "translate3d(0,-40px,0)" },
+        enter: { transform: "translate3d(0,0px,0)" },
+        leave: { transform: "translate3d(0,-40px,0)" },
+    })
+
+    return (
+        <Container>
+            <animated.h1 style={fadein}>
+                {data.site.siteMetadata.title}
+            </animated.h1>
+
+            <div style={{ display: "flex" }}>
+                {transitions.map(({(item, props, key)}) =>
+                <animated.div key={key} style={props}>
+                    {item.text}
+                </animated.div>
+                )}
+            </div>
+        </Container>
+    )
 }
 
 export default Name
