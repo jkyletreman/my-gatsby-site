@@ -1,12 +1,13 @@
 // libraries
 import React, { useState } from "react"
 import { useStaticQuery } from "gatsby"
+import {useSpring, animated} from 'react-spring'
 import { FaGithub, FaTwitterSquare, FaTwitter } from "react-icons/fa"
 // components
 import Container from "./containers/CenterContainer"
 
 const Name = () => {
-  const [reveal, setReveal] = useState(false)
+  const animation = useSpring({config: { duration: 1000 }, opacity: 1, from: {opacity: 0}});
   // components need static query instead of exporting method like Pages
   const data = useStaticQuery(
     graphql`
@@ -24,20 +25,19 @@ const Name = () => {
   )
   return (
     <Container>
-      <h1>{data.site.siteMetadata.title}</h1>
+      <animated.h1 style={animation}>{data.site.siteMetadata.title}</animated.h1>
       {/* Icon Container */}
       <div
         style={{
           display: 'flex'
         }}
-        onMouseOver={() => setReveal(true)}
       >
         {/* Link Container */}
         <a href={data.site.siteMetadata.links.github}>
           <FaGithub
             style={{
               backgroundColor: "white",
-              display: reveal ? 'flex' : 'none'
+              display: 'flex',
             }}
           />
         </a>
@@ -45,7 +45,7 @@ const Name = () => {
           <FaTwitterSquare
             style={{
               backgroundColor: "white",
-              display: reveal ? 'flex' : 'none'
+              display: 'flex'
             }}
           />
         </a>
