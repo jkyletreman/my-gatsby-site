@@ -1,15 +1,19 @@
 //libraries
 import React from "react"
 // containers
-import CenterContainer from "../components/containers/CenterContainer"
+import CenterContainer, {
+    Center,
+} from "../components/containers/CenterContainer"
 // components
 import Name from "../components/Name"
-import IconRow from "../components/IconRow"
+import IconBox from "../components/IconBox"
 
 const IndexPage = () => (
     <CenterContainer>
         <Name />
-        <IconRow />
+        <Center>
+            <IconBox />
+        </Center>
     </CenterContainer>
 )
 

@@ -1,0 +1,7 @@
+.iconContainer {
+    position: absolute;
+    display: flex;
+    width: 50px;
+    height: 50px;
+    will-change: opacity;
+  }

@@ -7,6 +7,7 @@
 h1 {
     color: white;
     font-family: cursive;
+    font-size: 4rem;
 }
 
 .centered {
@@ -16,4 +17,12 @@ h1 {
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+.center {
+    margin: 1rem;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
 }

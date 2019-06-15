@@ -5,9 +5,8 @@ module.exports = {
     author: `@jkyletreman`,
     links: {
       github: 'https://github.com/jkyletreman',
-      linkedin: '',
-      twitter: '',
-      bioethics: '',
+      linkedin: 'https://www.linkedin.com/in/jkyletreman',
+      twitter: 'https://twitter.com/jkyletreman',
     },
   },
   plugins: [

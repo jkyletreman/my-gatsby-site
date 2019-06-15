@@ -13,10 +13,10 @@
     "gatsby-plugin-sharp": "^2.1.2",
     "gatsby-source-filesystem": "^2.0.37",
     "gatsby-transformer-sharp": "^2.1.20",
-    "lowdash": "^1.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-social-icons": "^4.1.0",
     "react-spring": "^8.0.22"
   },
   "devDependencies": {
