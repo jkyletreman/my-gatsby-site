@@ -17,7 +17,6 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-icons": "^3.7.0",
     "react-spring": "^8.0.22"
   },
   "devDependencies": {
@@ -29,6 +28,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "clean": "rm -rf node_modules && rm yarn.lock && yarn install",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
